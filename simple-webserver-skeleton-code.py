@@ -12,10 +12,17 @@ serverSocket.listen(1)
 while True:
 	print('Ready to serve...')
 	connectionSocket, addr = serverSocket.accept()
-	try: #TODO
-		#Write your code here
+	try: 
+		# ----------------------------------------------------------------
+		# Read HTTP request
+		request = serverSocket.recv(1024).decode()
 
-		#End of your code
+		# Parse HTTP request
+		lines = request.splitlines()
+		request_line = lines[0]
+		method, path, version = request_line.split() #TODO
+
+		#--------------------------------------------------------------------
 		message = #Write your code here #End of your code
 		filename = message.split()[1]
 		f = open(filename[1:])
