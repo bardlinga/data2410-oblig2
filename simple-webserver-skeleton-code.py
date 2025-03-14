@@ -3,20 +3,23 @@ from socket import *
 import sys
 serverSocket = socket(AF_INET, SOCK_STREAM) 
 
-#Prepare a sever socket
-#Write your code here
+port = 8000
+server_ip ='127.0.0.1'
+	
+serverSocket.bind((server_ip, port)) 
+serverSocket.listen(1) 	
 
-#End of your code
 while True:
-	#Establish the connection print('Ready to serve...') connectionSocket, addr = 
-	try:
+	print('Ready to serve...')
+	connectionSocket, addr = serverSocket.accept()
+	try: #TODO
 		#Write your code here
 
 		#End of your code
-		message = #Write your code here #End of your code 
+		message = #Write your code here #End of your code
 		filename = message.split()[1]
 		f = open(filename[1:])
-		outputdata = #Write your code here #End of your code 
+		outputdata = #Write your code here #End of your code
 
 		#Send one HTTP header line into socket
 		#Write your code here
