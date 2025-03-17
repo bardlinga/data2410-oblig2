@@ -28,8 +28,7 @@ while True:
 				path = '/index.html'									# redir empty path to index
 			
 			responseBody = open('.' + path).read()
-			responseHeader = \
-			'\r\n' + 'HTTP/1.1 200 OK' \
+			responseHeader = 'HTTP/1.1 200 OK' \
 			'\r\n' + 'Content-Type: text/html'							# could also expand response header with Content-Length etc
 			response = responseHeader + '\r\n\r\n' + responseBody		# construct response from header and body
 		else:															# elif method == other valid methods goes here
