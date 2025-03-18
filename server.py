@@ -3,7 +3,7 @@ import sys
 
 # setup
 serverSocket = socket(AF_INET, SOCK_STREAM) 	# make socket
-port = 42069									# declare port and ip for readability
+port = 8001										# declare port and ip for readability
 ip = '127.0.0.1'
 serverSocket.bind((ip, port))					# bind socket
 serverSocket.listen(1) 							# listen on port for up to 1 connection
@@ -11,21 +11,19 @@ serverSocket.listen(1) 							# listen on port for up to 1 connection
 # request handling
 while True:
 	clientSocket, addr = serverSocket.accept()
-	print(f'Client connected on address {addr}')			# server side monitoring
+	print(f'Client connected on address {addr}')				# server side monitoring
 
 	try: 
-		request = clientSocket.recv(1024).decode()			# parsing http request
+		request = clientSocket.recv(1024).decode()				# parsing http request
 		requestLines = request.splitlines()
 		requestHeader = requestLines[0]
 		method, path, version = requestHeader.split()
 
-		print(f'Handling client request: {requestHeader}')	# server side montioring
+		print(f'Handling client request: {requestHeader}')		# server side montioring
 		
-		responseBody = ""
-
 		if method == 'GET':
 			if path == '/':
-				path = '/index.html'									# redir empty path to index
+				path = '/index.html'							# redir empty request path to index
 			
 			responseBody = open('.' + path).read()
 			responseHeader = 'HTTP/1.1 200 OK' \

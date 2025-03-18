@@ -4,7 +4,7 @@ import sys
 #TODO add argparse
 
 clientSocket = socket(AF_INET, SOCK_STREAM)
-port = 42069
+port = 8001
 ip = '127.0.0.1'
 
 request = 'GET / HTTP/1.1'
