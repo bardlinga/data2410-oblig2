@@ -1,5 +1,7 @@
 how to run
 
+server.py and server-multithread.py has to be run in the same directory as index.html.
+
 servers can be run in bash or wsl with the following commands:
     $ python3 server.py 
     $ python3 server-multithread.py
